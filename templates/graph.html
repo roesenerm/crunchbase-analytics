@@ -1,0 +1,26 @@
+{%  extends "index.html" %}
+{% block body %}
+	<body>
+		<div class="container">
+			<h1>Funding Rounds</h1>
+			<br>
+			<form action="" method="post">
+				<p><input type="text" placeholder="Company Name" name="company" value="{{request.form.company}}"></p>
+			</form>
+			{% if error %}
+				<p class="error"><strong>Error:</strong> {{ error }}</p>
+			{% endif %}
+		</div>
+
+		<div id={{ chartID|safe }} class='chart' style='height: 100px'></div>
+		<script type="text/javascript">
+			var chart_id = {{ chartID|safe }}
+			var series = {{ series|safe }}
+			var title = {{ title|safe }}
+			var xAxis = {{ xAxis|safe }}
+			var yAxis = {{ yAxis|safe }}
+			var chart = {{ chart|safe }}
+		</script>
+	</body>
+
+{% endblock %}
